@@ -1,1 +1,1 @@
-web gunicorn halit_blog.wsgi
+web gunicorn blogEcem.wsgi
