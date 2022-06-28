@@ -17,14 +17,10 @@ if (sessionStorage.getItem("kullanıcı")) {
     $('.user').hide()
     $('.exit').hide()
 }
-// $('.user p').hover(function () {
-//         this.style.backgroundColor = 'rgb(214, 93, 93)'
-//         this.style.color = '#fff'
-//         this.innerHTML = 'Profil'
-//     }, function () {
-//         this.innerHTML = 'Hoşgeldiniz: ' + sessionStorage.getItem("name")
-//     }
-// );
+$('.user p').click(function () {
+    location.href = location.href + "profil";
+}
+);
 
 $('.login-button p').click(function( event ){ // <---- "event" parameter here
     fetch('http://127.0.0.1:8000/user/giris', {

@@ -14,6 +14,9 @@ print(Users.objects.all().values())
 def index(request):
     return render (request, 'blogApp/homepage.html', {'title': 'Ecem Beyza Aydın BLOG'})
 
+def profile(request):
+    return render (request, 'blogApp/profil.html', {'title': 'Profil'})
+
 @csrf_exempt
 def UserApi(request, id = 0):
     if request.method == 'GET':
