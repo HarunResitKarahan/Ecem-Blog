@@ -22,5 +22,5 @@ def UserApi(request, id = 0):
         user_serializer = UsersSerializer(data = user_data)
         if user_serializer.is_valid():
             user_serializer.save()
-            return JsonResponse("Added Successfully", safe = False)
-        return JsonResponse("Failed to Add", safe = False)
+            return JsonResponse("Basariyla Kayit Olundu", safe = False)
+        return JsonResponse("Kayıt Olunamadı", safe = False)
