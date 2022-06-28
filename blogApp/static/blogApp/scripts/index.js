@@ -5,17 +5,26 @@ if (sessionStorage.getItem("kullanıcı")) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            userName: sessionStorage("kullanıcı"),
+            userName: sessionStorage.getItem("kullanıcı")
         })
     })
         .then(response => response.json())
         .then(data => {
-            document.getElementsByClassName("user").innerHTML = data
+            document.querySelector(".user p").innerHTML = "Profile"
+            sessionStorage.setItem('name', data)
         })
 } else {
     $('.user').hide()
     $('.exit').hide()
 }
+// $('.user p').hover(function () {
+//         this.style.backgroundColor = 'rgb(214, 93, 93)'
+//         this.style.color = '#fff'
+//         this.innerHTML = 'Profil'
+//     }, function () {
+//         this.innerHTML = 'Hoşgeldiniz: ' + sessionStorage.getItem("name")
+//     }
+// );
 
 $('.login-button p').click(function( event ){ // <---- "event" parameter here
     fetch('http://127.0.0.1:8000/user/giris', {

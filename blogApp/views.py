@@ -9,7 +9,7 @@ from blogApp.serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password,check_password
 
-# print(Users.objects.all().values())
+print(Users.objects.all().values())
 
 def index(request):
     return render (request, 'blogApp/homepage.html', {'title': 'Ecem Beyza Aydın BLOG'})
@@ -40,10 +40,10 @@ def UserGirisApi(request, id = 0):
             user_data = JSONParser().parse(request)
             print(user_data)
             user = Users.objects.filter(userName = user_data['userName']).values()
-            print(user_data['userPassword'])
-            print(user[0]['userPassword'])
             if check_password(user_data['userPassword'], user[0]['userPassword']):
                 return JsonResponse("Giriş Başarılı", safe = False)
+            else: 
+                return JsonResponse("Kullanıcı Adı veya Şifre Hatalı", safe = False)
 
         except:
             return JsonResponse("Kullanıcı Adı veya Şifre Hatalı", safe = False)
