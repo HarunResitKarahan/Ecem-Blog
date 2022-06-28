@@ -1,1 +1,0 @@
-web gunicorn blogEcem.wsgi
