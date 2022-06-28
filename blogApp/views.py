@@ -9,13 +9,17 @@ from blogApp.serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password,check_password
 
-print(Users.objects.all().values())
+# print(Users.objects.all().values())
 
 def index(request):
     return render (request, 'blogApp/homepage.html', {'title': 'Ecem Beyza Aydın BLOG'})
 
 @csrf_exempt
 def UserApi(request, id = 0):
+    if request.method == 'GET':
+        workers = Users.objects.all()
+        workers_serializer = UsersSerializer(workers, many = True)
+        return JsonResponse(workers_serializer.data, safe = False)
     if request.method == 'POST':
         user_data = JSONParser().parse(request)
         if len(Users.objects.filter(userName = user_data['userName']).values()) > 0:
@@ -43,3 +47,10 @@ def UserGirisApi(request, id = 0):
 
         except:
             return JsonResponse("Kullanıcı Adı veya Şifre Hatalı", safe = False)
+
+@csrf_exempt
+def UserGetApi(request, id = 0):
+    if request.method == 'POST':
+        user_data = JSONParser().parse(request)
+        user = Users.objects.filter(userName = user_data['userName']).values()
+        return JsonResponse(user[0]['name'], safe = False)

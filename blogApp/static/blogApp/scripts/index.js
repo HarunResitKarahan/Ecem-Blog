@@ -1,3 +1,22 @@
+if (sessionStorage.getItem("kullanıcı")) {
+    $('.sign_in').hide()
+    $('.login').hide()
+    fetch('http://127.0.0.1:8000/user/get', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            userName: sessionStorage("kullanıcı"),
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementsByClassName("user").innerHTML = data
+        })
+} else {
+    $('.user').hide()
+    $('.exit').hide()
+}
+
 $('.login-button p').click(function( event ){ // <---- "event" parameter here
     fetch('http://127.0.0.1:8000/user/giris', {
         method: 'POST',
@@ -22,6 +41,7 @@ $('.register-button p').click(function( event ){ // <---- "event" parameter here
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             userName: document.getElementsByName("register-admin-id")[0].value,
+            name: document.getElementsByName("name")[0].value,
             userEMail: document.getElementsByName("e-posta")[0].value,
             userPassword: document.getElementsByName("register-password")[0].value
         })
@@ -45,3 +65,7 @@ $('.cards').click(function( event ){ // <---- "event" parameter here
         });
       }
 });
+$('.exit').click(() => {
+    sessionStorage.removeItem("kullanıcı")
+    location.reload()
+})
