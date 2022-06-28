@@ -6,4 +6,4 @@ from blogApp.models import *
 class UsersSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Users
-        fields=('id','userName', 'userEMail', 'userPassword')
+        fields=('userName', 'userEMail', 'userPassword')

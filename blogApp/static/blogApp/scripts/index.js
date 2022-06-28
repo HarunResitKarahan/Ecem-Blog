@@ -1,5 +1,5 @@
-$('.send .login').click(function( event ){ // <---- "event" parameter here
-    fetch('http://127.0.0.1:8000/user', {
+$('.login-button p').click(function( event ){ // <---- "event" parameter here
+    fetch('http://127.0.0.1:8000/user/giris', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -10,7 +10,10 @@ $('.send .login').click(function( event ){ // <---- "event" parameter here
         .then(response => response.json())
         .then(data => {
             alert(data)
-            location.reload()
+            if (data === 'Giriş Başarılı') {
+                sessionStorage.setItem('kullanıcı', document.getElementsByName("admin-id")[0].value)
+                location.reload()
+            }
         })
 });
 $('.register-button p').click(function( event ){ // <---- "event" parameter here
