@@ -13,7 +13,7 @@ $('.send .login').click(function( event ){ // <---- "event" parameter here
             location.reload()
         })
 });
-$('.send .register-button').click(function( event ){ // <---- "event" parameter here
+$('.register-button p').click(function( event ){ // <---- "event" parameter here
     fetch('http://127.0.0.1:8000/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
