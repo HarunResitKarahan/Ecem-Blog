@@ -1,7 +1,7 @@
 if (sessionStorage.getItem("kullanıcı")) {
     $('.sign_in').hide()
     $('.login').hide()
-    fetch('http://127.0.0.1:8080/user/get', {
+    fetch( location.href + 'user/get', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -27,7 +27,7 @@ $('.login-button').click(function( event ){ // <---- "event" parameter here
     length1 = document.getElementsByName("admin-id")[0].value.length
     length2 = document.getElementsByName("password")[0].value.length
     if ( length1 > 0 &&  length2 > 0) {
-        fetch('http://127.0.0.1:8080/user/giris', {
+        fetch(location.href + 'user/giris', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -65,7 +65,7 @@ $('.register-button p').click(function( event ){ // <---- "event" parameter here
     eposta = document.getElementsByName("e-posta")[0].value.includes('@')
     length4 = document.getElementsByName("register-password")[0].value.length
     if (length1 > 0 && length2 > 0 && length3 > 0 && length4 > 0 && eposta) {
-        fetch('http://127.0.0.1:8080/user', {
+        fetch(location.href + 'user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

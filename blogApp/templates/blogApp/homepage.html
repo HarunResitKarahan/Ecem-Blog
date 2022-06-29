@@ -91,16 +91,18 @@
                         <span>Giriş Yap</span>
                     </div>
                     <div class="input">
-                        <label for="admin-id">Kullanıcı Adı: </label>
-                        <input type="text" name="admin-id">
-                    </div>
-                    <div class="input">
-                        <label for="password">Şifre: </label>
-                        <input type="password" name="password" maxlength="15">
-                    </div>
-                    <div class="send login-button">
-                        <p>Giriş Yap</p>
-                    </div>
+                            <label for="admin-id">Kullanıcı Adı: </label>
+                            <input type="text" name="admin-id">
+                        </div>
+                        <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control1"><span class="uyarı">Kulanıcı Adı Boş Olamaz</span></div>
+                        <div class="input">
+                            <label for="password">Şifre: </label>
+                            <input type="password" name="password" maxlength="15" required>
+                        </div>
+                        <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control2"><span class="uyarı">Şifre Boş Olamaz</span></div>
+                        <button style="border:none;background-color: rgba(255, 255, 255, 0)" type="submit"  class="send login-button">
+                            <p>Giriş Yap</p>
+                        </button >
                 </div>
             </div>
         </div>
@@ -115,23 +117,27 @@
                     </div>
                     <div class="input">
                         <label for="admin-id">Kullanıcı Adı: </label>
-                        <input type="text" name="register-admin-id">
+                        <input type="text" name="register-admin-id" required>
                     </div>
+                    <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control3"><span class="uyarı">Kulanıcı Adı Boş Olamaz</span></div>
                     <div class="input">
                         <label for="name">İsim: </label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" required>
                     </div>
+                    <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control4"><span class="uyarı">İsim Boş Olamaz</span></div>
                     <div class="input">
-                        <label for="e-posta">E-posta: </label>
-                        <input type="text" name="e-posta">
+                        <label for="e-posta" class="form-label">E-posta: </label>
+                        <input type="email" name="e-posta" aria-describedby="emailHelp" required>
                     </div>
+                    <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control5"><span class="uyarı">E-posta Hatalı</span></div>
                     <div class="input">
                         <label for="password">Şifre: </label>
-                        <input type="password" name="register-password" maxlength="15">
+                        <input type="password" name="register-password" minlength="1" maxlength="15" required>
                     </div>
-                    <div class="send register-button">
+                    <div style="width: 100%;margin: 0;padding: 0;display: none;" name="control6"><span class="uyarı">Şifre Boş Olamaz</span></div>
+                    <button style="border:none;background-color: rgba(255, 255, 255, 0)" type="submit"  class="send register-button">
                         <p>Kayıt Ol</p>
-                    </div>
+                    </button >
                 </div>
             </div>
         </div>
