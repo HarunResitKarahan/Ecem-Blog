@@ -55,6 +55,9 @@
 * textarea {
   resize: none;
 }
+* input {
+  border-color: rgba(0, 0, 0, 0.021) !important;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
