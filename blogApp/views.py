@@ -9,13 +9,8 @@ from blogApp.serializers import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import make_password,check_password
 
-print(Users.objects.all().values())
-
 def index(request):
     return render (request, 'blogApp/homepage.html', {'title': 'Ecem Beyza Aydın BLOG'})
-
-def profile(request):
-    return render (request, 'blogApp/profil.html', {'title': 'Profil'})
 
 @csrf_exempt
 def UserApi(request, id = 0):
