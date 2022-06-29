@@ -10,17 +10,17 @@ if (sessionStorage.getItem("kullanıcı")) {
     })
         .then(response => response.json())
         .then(data => {
-            document.querySelector(".user p").innerHTML = "Profile"
+            document.querySelector(".user p").innerHTML = "Hoşgeldiniz: " + data
             sessionStorage.setItem('name', data)
         })
 } else {
     $('.user').hide()
     $('.exit').hide()
 }
-$('.user p').click(function () {
-    location.href = location.href + "profil";
-}
-);
+// $('.user p').click(function () {
+//     location.href = location.href + "profil";
+// }
+// );
 
 $('.login-button p').click(function( event ){ // <---- "event" parameter here
     fetch('http://127.0.0.1:8000/user/giris', {
